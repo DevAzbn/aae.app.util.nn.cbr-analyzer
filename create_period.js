@@ -67,4 +67,4 @@ for(var y = parseInt(start_at_arr[2]); y < (parseInt(stop_at_arr[2]) + 1); y++) 
 	
 }
 
-console.dir(dates);
+//console.dir(dates);

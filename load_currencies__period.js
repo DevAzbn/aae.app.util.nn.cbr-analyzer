@@ -100,7 +100,7 @@ dates.forEach(function(item, i, arr) {
 				
 			} else {
 				
-				app.saveFile('dates/' + item_arr[2] + '/' + item_arr[1] + '/' + item_arr[0] + '/data.xml', body);
+				app.saveFile('dates/' + item_arr[2] + '/' + item_arr[1] + '/' + item_arr[0] + '/currencies.xml', body);
 				
 				/*
 				app.log.info(item);
@@ -118,7 +118,7 @@ dates.forEach(function(item, i, arr) {
 						
 					} else {
 						
-						app.saveJSON('dates/' + item_arr[2] + '/' + item_arr[1] + '/' + item_arr[0] + '/data', _result);
+						app.saveJSON('dates/' + item_arr[2] + '/' + item_arr[1] + '/' + item_arr[0] + '/currencies', _result);
 						
 						/*
 						_result.ValCurs.Valute[
@@ -151,16 +151,19 @@ dates.forEach(function(item, i, arr) {
 							
 							var value = parseFloat(crnc['Value'][0].replace(',', '.'));
 							
+							
 							if(currencies_linear[crnc['CharCode'][0]]) {
 								
 							} else {
 								
 								currencies_linear[crnc['CharCode'][0]] = {};
+								//currencies_linear[crnc['CharCode'][0]] = [];
 								
 							}
 							
-							currencies_linear[crnc['CharCode'][0]][ '' + item_arr[2] + '' + item_arr[1] + '' + item_arr[0] + '' ] = value;
 							
+							currencies_linear[crnc['CharCode'][0]][ parseInt('' + item_arr[2] + '' + item_arr[1] + '' + item_arr[0] + '') ] = value;
+							//currencies_linear[crnc['CharCode'][0]].push(value);
 							
 							
 							if(currencies_struct[crnc['CharCode'][0]]) {
