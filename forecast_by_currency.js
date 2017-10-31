@@ -60,7 +60,7 @@ nn.fromJSON(app.loadJSON('nn/currencies/' + argv.nn));
 
 //app.saveJSON('nn/train/' + argv.nn, train_data);
 
-for(var i = 0; i < (argv.forecast + 1); i++) {
+for(var i = 0; i < (argv.forecast); i++) {
 	
 	//.splice(2, 0, "cashew");
 	
@@ -72,8 +72,12 @@ for(var i = 0; i < (argv.forecast + 1); i++) {
 	
 	var _output = nn.run(part);
 	
-	console.log(i, _output * 1000, _output * 1000 - values_r[0]);
+	var val_to_arr = parseFloat((_output * 1000).toFixed(4));
 	
-	values_r.splice(0, 0, _output);
+	//console.log(i, _output * 1000, (_output - part[0]) * 1000);
+	
+	values_r.splice(0, 0, val_to_arr);
+	
+	console.log(i, values_r.slice(0, 10));
 	
 }

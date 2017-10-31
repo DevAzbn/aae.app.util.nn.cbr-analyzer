@@ -13,7 +13,7 @@ var today = new Date();
 var argv = require('optimist')
 	//.usage('Usage: $0 --project=[Name of project]')
 	.default('cur', 'USD')
-	.default('days', 90)
+	.default('days', 30)
 	.default('nn', 'default')
 	.default('type', 'default')
 	.demand(['cur','days'])
@@ -79,7 +79,7 @@ switch(argv.type) {
 //app.saveJSON('nn/train/' + argv.nn, train_data);
 
 nn.train(train_data, {
-	errorThresh : 0.000003,	// error threshold to reach 0.005
+	errorThresh : 0.00000225,	// error threshold to reach 0.005
 	iterations : 20000,		// maximum training iterations
 	log : true,				// console.log() progress periodically
 	logPeriod : 1,		// number of iterations between logging
